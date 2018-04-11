@@ -43,7 +43,7 @@ class FramelessWindow(QWidget):
         self.setAttribute(Qt.WA_TranslucentBackground, True)
         # 如果不加FramelessWindowHint,则可以实现和windows一样的效果,当窗口拖动到边缘会有透明框
         # 但是背景无法透明,如果加上该flag,背景可以透明,但无法实现windows本身窗口动画
-        #self.setWindowFlags(Qt.WindowMinimizeButtonHint |Qt.FramelessWindowHint)
+        self.setWindowFlags(Qt.WindowMinimizeButtonHint |Qt.FramelessWindowHint)
 
         # 这里通过重新设置窗口属性来解决
         style = ctypes.windll.user32.GetWindowLongW(

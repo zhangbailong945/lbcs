@@ -1,6 +1,7 @@
 from PyQt5.QtCore import Qt,pyqtSignal
 from PyQt5.QtWidgets import QWidget,QHBoxLayout,QSpacerItem,QSizePolicy,\
 QPushButton,QLabel
+from PyQt5.QtGui import QIcon,QPixmap
 
 class TitleWidget(QWidget):
     minimized=pyqtSignal()
@@ -12,8 +13,8 @@ class TitleWidget(QWidget):
         title_visible=True,
         skin_visible=True,
         min_visible=True,
-        max_visible=True,
-        nor_visible=True,
+        max_visible=False,
+        nor_visible=False,
         close_visible=True,
         *args,**kwargs
         ):
@@ -31,7 +32,7 @@ class TitleWidget(QWidget):
         layout = QHBoxLayout(self, spacing=0)
         layout.setContentsMargins(0, 0, 0, 0)
         self.iconLabel=QLabel(self, objectName="iconLabel", visible=icon_visible)
-        self.iconLabel.setText("这里是图标")
+        self.iconLabel.setPicture
         layout.addWidget(self.iconLabel)
         self.titleLabel=QLabel(self, objectName="titleLabel", visible=title_visible)
         self.titleLabel.setText("这里是标题")

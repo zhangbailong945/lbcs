@@ -1,6 +1,6 @@
 
-from PyQt5.QtCore import Qt,QEvent,QPropertyAnimation,pyqtSignal,QRect,QEasingCurve,QParallelAnimationGroup
-from PyQt5.QtWidgets import QWidget,QVBoxLayout,QHBoxLayout
+from PyQt5.QtCore import Qt,QEvent,QPropertyAnimation,pyqtSignal,QRect,QEasingCurve,QParallelAnimationGroup,QSize
+from PyQt5.QtWidgets import QWidget,QVBoxLayout,QHBoxLayout,QBoxLayout
 
 
 from Libraries.Widgets.FramelessWindow import FramelessWindow
@@ -8,6 +8,7 @@ from Libraries.Widgets.TitleWidget import TitleWidget
 from Libraries.Widgets.MenuWidget import MenuWidget
 from Libraries.Widgets.ContentWidget import ContentWidget
 from Libraries.Widgets.WebWidget import OAuthWindow
+from Libraries.Widgets.IndexWidget import IndexWidget
 
 __Author__="LoachBlog"
 __Copyright="Copyright©2018 LoachBlog"
@@ -33,16 +34,22 @@ class MainWidget(QWidget):
         self._titleBar.maximized.connect(parent.showMaximized)
         self._titleBar.normaled.connect(parent.showNormal)
         self._titleBar.closed.connect(self.exited.emit)
+        self._titleBar.setMaximumHeight(36)
         '''自定义菜单栏'''
         self._menuBar=MenuWidget(parent=self)
+        self._menuBar.setMaximumHeight(80)
+        
+        #首页面板
+        self._indexPanel=IndexWidget(parent=self)
         #中间内容布局
-        self._webBar=OAuthWindow(self)
+        #self._webBar=OAuthWindow(self)
         #总体布局,采用垂直布局
         layout=QVBoxLayout(self,spacing=0)
         layout.setContentsMargins(0,0,0,0)
         layout.addWidget(self._titleBar)
         layout.addWidget(self._menuBar)
-        layout.addWidget(self._webBar)
+        #layout.addWidget(self._webBar)
+        layout.addWidget(self._indexPanel)
         self.setLayout(layout)
     
 
