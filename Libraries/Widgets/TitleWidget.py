@@ -9,11 +9,11 @@ class TitleWidget(QWidget):
     closed=pyqtSignal()
 
     def __init__(self,icon_visible=True,
-        title_visible=False,
-        skin_visible=False,
+        title_visible=True,
+        skin_visible=True,
         min_visible=True,
         max_visible=True,
-        nor_visible=False,
+        nor_visible=True,
         close_visible=True,
         *args,**kwargs
         ):
@@ -27,21 +27,31 @@ class TitleWidget(QWidget):
         self._maximumButton.setVisible(not visible)
         self._normalButton.setVisible(visible)
     
-    def initUI(self,icon_visible,title_visivle,skin_visible,min_visible,max_visible,nor_visible,close_visible):
-        layout=QHBoxLayout(self,spacing=0)
-        layout.setContentsMargins(0,0,0,0)
-        layout.addWidget(self,objectName="iconLabel",visible=icon_visible)
-        layout.addWidget(self,objectName="titleLabel",visible=title_visivle)
+    def initUI(self,icon_visible,title_visible,skin_visible,min_visible,max_visible,nor_visible,close_visible):
+        layout = QHBoxLayout(self, spacing=0)
+        layout.setContentsMargins(0, 0, 0, 0)
+        self.iconLabel=QLabel(self, objectName="iconLabel", visible=icon_visible)
+        self.iconLabel.setText("这里是图标")
+        layout.addWidget(self.iconLabel)
+        self.titleLabel=QLabel(self, objectName="titleLabel", visible=title_visible)
+        self.titleLabel.setText("这里是标题")
+        layout.addWidget(self.titleLabel)
+        # 左侧空白拉伸
         layout.addItem(QSpacerItem(
-            20,20,QSizePolicy.Expanding,QSizePolicy.Minimum
-        ))
-        layout.addWidget(QPushButton("",self,objectName="skinButton",visible=skin_visible))
-        layout.addWidget(QPushButton("",self,objectName="minimumButton",visible=min_visible,clicked=self.minimized.emit))
-        layout.addWidget(QPushButton("",self,objectName="maximumButton",visible=max_visible,clicked=self.maximized.emit))
+            20, 20, QSizePolicy.Expanding, QSizePolicy.Minimum))
+        layout.addWidget(QPushButton(
+            "", self, objectName="skinButton", visible=skin_visible))
+        layout.addWidget(QPushButton(
+            "", self, objectName="minimumButton", visible=min_visible, clicked=self.minimized.emit))
+        self._maximumButton = QPushButton(
+            "", self, objectName="maximumButton", visible=max_visible, clicked=self.maximized.emit)
         layout.addWidget(self._maximumButton)
-        self._normalButton=QPushButton("",self,objectName="normalButton",visible=nor_visible,clicked=self.closed.emit)
+        self._normalButton = QPushButton(
+            "", self, objectName="normalButton", visible=nor_visible, clicked=self.normaled.emit)
         layout.addWidget(self._normalButton)
-        layout.addWidget(QPushButton("",self,objectName="closeButton",visible=close_visible,clicked=self.closed.emit))
+        layout.addWidget(QPushButton(
+            "", self, objectName="closeButton", visible=close_visible, clicked=self.closed.emit))
+
 
 if __name__=="__main__":
     import sys

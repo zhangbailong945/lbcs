@@ -1,415 +1,53 @@
 /* === Shared === */
-QStackedWidget, QLabel, QRadioButton, QCheckBox, 
-QGroupBox, QStatusBar, QToolButton, QComboBox, QDialog,QProgressBar {
-    background-color: #FFFFFF;
-    color: #000000;
-    font-family: "Segoe UI";
-}
-
-QWidget{
-    background: #FFFFFF;
-    color: #000000;
-}
-
-QWidget:disabled{
-    color: #777777;
-}
-
-/* === QWidget === */
-QWidget:window {
-    background: #FFFFFF;
-    color: #000000;
-    font-family: "Segoe UI";
-}
-
-/* === QToolTip === */
-QToolTip {
-    color: blue;
-}
-
-/* === QPushButton === */
-QPushButton {
-	background: #EEEEEE;
-    color: #222222;
-    border: 1px solid #AAAAAA;
-
-	
-    padding: 4px; 
-    min-width: 30px;
-    min-height: 12px;
-	
-}
-
-QPushButton:hover {
-    background-color: #DDDDDD;
-    border-color: blue;
-}
-
-QPushButton:pressed {
-    background-color: #AAAAAA;
-    border-color: #000040;
-    color: #000040;
-}
-
-QPushButton:disabled {
-    color: #777777;
-}
-
-/* === Checkable items === */
-QCheckBox::disabled {
-    color: #777777;
-}
-
-QCheckBox::indicator, QRadioButton::indicator, QTreeView::indicator {
-    width: 12px;
-    height: 12px;
-    background-color: #EEEEEE;
-    border: 1px solid #CCCCCC;
-}
-
-QRadioButton::indicator {
-    border-radius: 8px;
-}
-
-QCheckBox::indicator::checked, QRadioButton::indicator::checked, QTreeView::indicator::checked {
-    background-color: qradialgradient(cx:0.5, cy:0.5, fx:0.25, fy:0.15, radius:0.3, stop:0 #333333, stop:1 #EEEEEE);
-}
-
-QCheckBox::indicator:disabled, QRadioButton::indicator:disabled, QTreeView::indicator:disabled {
-    background-color: #AAAAAA;
-}
-
-QCheckBox::indicator::checked:disabled, QRadioButton::indicator::checked:disabled, QTreeView::indicator::checked:disabled {
-    background-color: qradialgradient(cx:0.5, cy:0.5, fx:0.25, fy:0.15, radius:0.3, stop:0 #333333, stop:1 #AAAAAA);
-}
-
-/* === QComboBox === */
-QComboBox {
-    background-color: white;
-    border: 1px solid #CCCCCC;
-    color: black;
-    padding:1px 2em 1px 3px;
-}
-
-QComboBox::drop-down {
-    subcontrol-origin: padding;
-    subcontrol-position: top right;
-    border-left: 1px solid #DDDDDD;
-}
-
-QComboBox::down-arrow {
-    border: 2px solid #DDDDDD;
-    width: 6px;
-    height: 6px;
-    background: #999999;
-}
-
-/* === QGroupBox === */
-QGroupBox {
-    border: 2px solid #CCCCCC;
-    margin-top: 2ex;
-}
-
-QGroupBox::title {
-    color: black;
-    subcontrol-origin: margin;
-    subcontrol-position: top left;
-    margin-left: 5px;
-}
-
-/* === QTabWidget === */
-QTabWidget::pane {
-    background: #DDDDDD;
-    border: 1px solid #CCCCCC;
-}
-
-/* === QTabBar === */
-QTabBar::tab {
-    background-color: #EEEEEE;
-    border: none;
-    color: #000000;
-    padding-left: 5px;
-    padding-right: 10px;
-    padding-top: 3px;
-    padding-bottom: 3px;
-}
-
-QTabBar::tab:hover {
-    background-color: #FFFFFF;
-    border: 1px solid #CCCCCC;
-    border-bottom: none;
-}
-
-QTabBar::tab:selected {
-    background: transparent;
-    border: 1px solid #CCCCCC;
-    /*border-top: 1px solid #700000;*/
-    border-bottom: 1px solid #FFFFFF;
-    color: #700000;
-}
-
-/* === QToolBar === */
-QToolBar {
-    background: transparent;
-    border: none;
-    padding: 1px;
-}
-
-QToolBar:handle {
-    background: #CCCCCC;
-    border-left: 1px dotted blue;
-    color: #333333;
-}
-
-QToolBar::separator {
-    width: 1px;
-    background-color: #888888;
-}
-
-/* === QToolButton === */
-QToolButton {
-    background: transparent;
-    border: none;
-    margin: 1px;
-}
-
-QToolButton:hover {
-    background-color: #DDDDDD;
-    border: 1px solid #CCCCCC;
-}
-
-QToolButton[popupMode="1"] { /* only for MenuButtonPopup */
-    padding-right: 20px; /* make way for the popup button */
-}
-
-QToolButton::menu-button {
-    border-left: 1px solid #DDDDDD;
-    background: transparent;
-    width: 16px;
-}
-
-QToolButton::menu-button:hover {
-    border-left: 1px solid #CCCCCC;
-    background: transparent;
-    width: 16px;
-}
 
-QToolButton:checked, QToolButton:pressed {
-    background-color: #EEEEEE;
-/* ===   color: blue;*/
+MainWidget {
+    border-radius: 4px;
+    qproperty-minwidth: 750px;
 }
 
-/* === QMenu === */
-QMenu {
-    background-color: #FFFFFF;
-    border: 1px solid gray;
-    color: black;
-    padding: 1px;
+/*标题栏*/
+TitleWidget {
+    background: #3448A1;
+    border-top-right-radius: 4px;
+    border-top-left-radius: 4px;
 }
-
-QMenu::item {
-    padding: 4px 20px 4px 20px;
-    border: 1px solid transparent;
-}
-
-QMenu::item:disabled {
-    color: #AAAAAA;
-}
-
-QMenu::item:selected {
-    border-color: gray;
-    background: #EEEEEE;
-}
-
-QMenu::icon:checked {
-
-}
-
-QMenu::separator {
-    height: 1px;
-    background: #CCCCCC;
-    margin-left: 10px;
-    margin-right: 10px;
-    margin-top: 1px;
-    margin-bottom: 1px;
-}
-
-QMenu::indicator {
-    width: 13px;
-    height: 13px;
-}
-
-/* === QMenuBar === */
-QMenuBar {
-    background-color: #CCCCCC;
-    color: black;
-}
-
-QMenuBar::item {
-    background: transparent;
-}
-
-QMenuBar::item:disabled {
-    color: gray;
-}
-
-QMenuBar::item:selected {
-    background: #CCCCCC;
-}
-
-QMenuBar::item:pressed {
-    background: #CCCCCC;
-}
- 
-/* === QScrollBar:vertical === */
-QScrollBar:vertical {
-    background: #EEEEEE;
-    width: 16px;
-    margin: 16px 0 16px 0;
-}
-
-QScrollBar::handle:vertical {
-    background: #BBBBBB;
-    min-height: 16px;
-}
-
-QScrollBar::add-line:vertical {
-    background: #CCCCCC;
-    height: 16px;
-    subcontrol-position: bottom;
-    subcontrol-origin: margin;
-}
-
-QScrollBar::sub-line:vertical {
-    background: #CCCCCC;
-    height: 16px;
-    subcontrol-position: top;
-    subcontrol-origin: margin;
-}
-
-QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
-    background: none;
-}
-
-QScrollBar:up-arrow:vertical, QScrollBar:down-arrow:vertical {
-    border: 2px solid #DDDDDD;
-    width: 6px;
-    height: 6px;
-    background: #AAAAAA;
-}
-
-/* === QScrollBar:horizontal === */
-QScrollBar:horizontal {
-    background: #EEEEEE;
-    height: 16px;
-    margin: 0 16px 0 16px;
-}
-
-QScrollBar::handle:horizontal {
-    background: #CCCCCC;
-    min-width: 16px;
-}
-
-QScrollBar::add-line:horizontal {
-    background: #CCCCCC;
-    width: 16px;
-    subcontrol-position: right;
-    subcontrol-origin: margin;
-}
-
-QScrollBar::sub-line:horizontal {
-    background: #CCCCCC;
-    width: 16px;
-    subcontrol-position: left;
-    subcontrol-origin: margin;
-}
-
-QScrollBar::add-page:horizontal, QScrollBar::sub-page:horizontal {
-    background: none;
-}
-
-QScrollBar:left-arrow:horizontal, QScrollBar:right-arrow:horizontal {
-    border: 2px solid #DDDDDD;
-    width: 6px;
-    height: 6px;
-    background: #AAAAAA;
-}
-
-/* =================== */
-QLineEdit, QListView, QTreeView, QTableView {
-    background-color: white;
-    color: #333333;
-    border: 1px solid #DDDDDD;
-}
-
-QAbstractScrollArea, QLineEdit, QTextEdit, QComboBox {
-    border-color: #DDDDDD;
-    border: 1px solid #DDDDDD;
-
-}
-
-QAbstractSpinBox {
-    background-color: white;
-    color: #333333;
-    border: 1px solid #DDDDDD;
-}
-
-QAbstractSpinBox:hover {
-    background-color: #888888;
-    color: #333333;
-    border: 1px solid #DDDDDD;
-}
-
-/* === QHeaderView === */
-QHeaderView::section {
-    background: #EEEEEE;
-    border: 0;
-    color: #222222;
-    padding: 3px 0 3px 4px;
+/*标题栏*/
+MenuWidget {
+    background: #0086F1;
 }
 
-/* === QListView === */
-QListView::item:hover {
-    background: #DDDDDD;
+/*标题栏中皮肤,最小化,最大化,还原,关闭按钮*/
+#skinButton,#minimumButton,#maximumButton,#normalButton,#closeButton {
+    min-width: 36px;
+    max-width: 36px;
+    min-height: 36px;
+    max-height: 36px;
+    font-family: "pyqtclient";
+    border: none; /*无边框*/
+    background: transparent; /*背景透明*/
 }
-
-QListView::item:selected {
-    background: #EEEEEE;
-    color: blue;
-}
-
-/* === QTableView === */
-QTableView {
-    color: black;
-    background-color: white;
-	alternate-background-color: #CCCCCC;
-}
-QTableView QTableCornerButton::section {
-     background: #333333;
+#skinButton:hover,#minimumButton:hover,#maximumButton:hover,#normalButton:hover {
+    color: white; /*文字白色*/
+    background-color: rgba(255, 255, 255, 100); /*带透明度白色*/
 }
-QTableView::item:hover {
-    background: #DDDDDD;
+#closeButton:hover {
+    color: white;
+    background-color: rgb(212, 64, 39); /*红色*/
 }
-
-QTableView::item:hover {
-    background: #EEEEEE;
-    color: blue;
+#skinButton {
+    font-size: 20px;
+    qproperty-text: "\2104";
 }
-
-/* === QTreeView === */
-QTreeView::item {
-    background: white;
+#minimumButton {
+    qproperty-text: "\2100";
 }
-
-QTreeView::item:hover {
-    background: #DDDDDD;
+#maximumButton {
+    qproperty-text: "\2101";
 }
-
-QTreeView::item:selected {
-    background: #DDDDDD;
-    color: red;
+#normalButton {
+    qproperty-text: "\2102";
 }
-
-QSplitter:handle {
-    background-color: #DDDDDD;
+#closeButton {
+    qproperty-text: "\2103";
+    border-top-right-radius: 4px;
 }
