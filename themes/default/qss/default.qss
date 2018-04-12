@@ -11,10 +11,29 @@ TitleWidget {
     border-top-right-radius: 4px;
     border-top-left-radius: 4px;
 }
-/*标题栏*/
+/*菜单栏*/
 MenuWidget {
-    background: #0086F1;
+    /*background: #0086F1;*/
 }
+
+#indexBtn{
+    min-width: 80px;
+    max-width: 80px;
+    min-height: 80px;
+    max-height: 80px;
+    /*background: #0086F1;*/
+    background-image:url(favicon.ico);
+}
+
+#categoryBtn{
+    min-width: 80px;
+    max-width: 80px;
+    min-height: 80px;
+    max-height: 80px;
+    /*qproperty-image: "themes/default/images/logo.png";*/
+    /*background: #0086F1;*/
+}
+
 /**/
 IndexWidget{
     background:#FFFFFF;
