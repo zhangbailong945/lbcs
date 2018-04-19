@@ -1,6 +1,6 @@
 from PyQt5.QtCore import Qt,pyqtSignal
 from PyQt5.QtWidgets import QWidget,QHBoxLayout,QSpacerItem,QSizePolicy,\
-QPushButton,QLabel
+QPushButton,QLabel,QMenu
 from PyQt5.QtGui import QIcon,QPixmap
 
 class TitleWidget(QWidget):
@@ -29,22 +29,37 @@ class TitleWidget(QWidget):
         self._normalButton.setVisible(visible)
     
     def initUI(self,icon_visible,title_visible,skin_visible,min_visible,max_visible,nor_visible,close_visible):
-        layout = QHBoxLayout(self, spacing=0)
-        layout.setContentsMargins(0, 0, 0, 0)
+        layout = QHBoxLayout(self, spacing=10)
+        layout.setContentsMargins(4, 0, 0, 0)
         '''标题栏-icon'''
         self.iconLabel=QLabel(self, objectName="iconLabel", visible=icon_visible)
+        iconPmap=QPixmap("./themes/default/images/favicon.ico")
+        iconPmap.width=30
+        iconPmap.height=30
+        self.iconLabel.setPixmap(iconPmap)
         
         layout.addWidget(self.iconLabel)
         '''标题栏-标题'''
         self.titleLabel=QLabel(self, objectName="titleLabel", visible=title_visible)
-        self.titleLabel.setText("这里是标题文字")
+        self.titleLabel.setText("LoachBlog")
         layout.addWidget(self.titleLabel)
         # 左侧空白拉伸
         layout.addItem(QSpacerItem(
             20, 20, QSizePolicy.Expanding, QSizePolicy.Minimum))
         '''标题栏-皮肤按钮'''
+        skinMenu=QMenu(self)
+        skinMenu.setObjectName("skinMenu")
+        skinMenu.addAction("皮肤")
+        skinMenu.addSeparator()
+        skinMenu.addAction("默认经典")
+        skinMenu.addAction("黑灯瞎火")
+        skinMenu.addSeparator()
+        skinMenu.addAction("版本检测")
+        skinMenu.addAction("关于")
         self.skinBtn=QPushButton("", self, objectName="skinButton", visible=skin_visible)
-        self.skinBtn.setToolTip("皮肤")
+        self.skinBtn.setMenu(skinMenu)
+        self.skinBtn.setText("设置")
+        self.skinBtn.setToolTip("设置")
         layout.addWidget(self.skinBtn)
         '''标题栏-最小化按钮'''
         self.miniBtn=QPushButton("", self, objectName="minimumButton", visible=min_visible, clicked=self.minimized.emit)

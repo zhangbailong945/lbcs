@@ -1,5 +1,5 @@
 
-from PyQt5.QtCore import Qt,QEvent,QPropertyAnimation,pyqtSignal,QRect,QEasingCurve,QParallelAnimationGroup,QSize
+from PyQt5.QtCore import Qt,QEvent,QPropertyAnimation,pyqtSignal,QRect,QEasingCurve,QParallelAnimationGroup,QSize,QUrl
 from PyQt5.QtWidgets import QWidget,QVBoxLayout,QHBoxLayout,QBoxLayout
 
 
@@ -34,7 +34,7 @@ class MainWidget(QWidget):
         self._titleBar.maximized.connect(parent.showMaximized)
         self._titleBar.normaled.connect(parent.showNormal)
         self._titleBar.closed.connect(self.exited.emit)
-        self._titleBar.setMaximumHeight(36)
+        self._titleBar.setMaximumHeight(40)
         '''自定义菜单栏'''
         self._menuBar=MenuWidget(parent=self)
         self._menuBar.setMaximumHeight(80)
@@ -57,7 +57,7 @@ class MainWindow(FramelessWindow):
     
     def __init__(self, *args, **kwargs):
         super(MainWindow, self).__init__(*args, **kwargs)
-        self.resize(800, 600)
+        self.resize(800,500)
         layout=QVBoxLayout(self,spacing=0)
         layout.setContentsMargins(0,0,0,0)
         self._mainWidget=MainWidget(self)
